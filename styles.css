@@ -24,6 +24,18 @@ p {
     text-transform: uppercase;
     letter-spacing: 2px;
   }
+
+.p1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    color: #000000; /* grey color */
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+
+  }
+
 nav {
     background-color: #333;
 }
@@ -157,3 +169,19 @@ nav {
     font-size: 1rem;
     color: #999;
 }
+
+/* Container to center the iframe */
+.iframe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 600px; /* Make the container take up the full viewport height */
+}
+  
+.map-iframe {
+    width: 80%;
+    height: 500px;
+    border: none;
+
+}
+  
