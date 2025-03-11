@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar with Vue.js</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <nav>
+            <ul class="navbar">
+                <li v-for="item in navItems" :key="item.id">
+                    <a :href="item.link">{{ item.name }}</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        // Vue.js instance
+        const app = Vue.createApp({
+            data() {
+                return {
+                    navItems: [
+                        { id: 1, name: 'Home', link: 'index.html' },
+                        { id: 2, name: 'Service', link: 'service.html' },
+                        { id: 3, name: 'Team', link: 'team.html' },
+                        { id: 4, name: 'Impressum', link: 'impressum.html' }
+                    ]
+                };
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+</html>
