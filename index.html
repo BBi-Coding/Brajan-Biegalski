@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigation Bar with Vue.js</title>
+    <title>Home</title>
     <link rel="stylesheet" href="styles.css">
     <!-- Add Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
 </head>
+
 <body>
     <div id="app">
         <nav>
@@ -17,9 +18,19 @@
                 </li>
             </ul>
         </nav>
+
+        <br>
+
+        <p>Yoo Whats up ali</p>
+        <br><br><br>
+        <p1 class="p1">Ofcourse i can change everything the fonts color. It does not matter. how big where how small etc.</p1>
+
     </div>
-    <br><br>
-<p>Yoo what up ali</p>	
+
+    <div class="iframe-container">
+        <iframe src="https://storage.googleapis.com/maps-solutions-chbm17t831/locator-plus/h00z/locator-plus.html" class="map-iframe"></iframe>
+    </div>
+
     <script>
         // Vue.js instance
         const app = Vue.createApp({
@@ -34,8 +45,19 @@
                 };
             }
         });
-
         app.mount('#app');
+
+        function myMap() {
+            var mapProp= {
+                center:new google.maps.LatLng(51.508742,-0.120850),
+                zoom:5,
+            };
+                var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            }
     </script>
+
 </body>
+
+   
+
 </html>
