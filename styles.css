@@ -9,7 +9,6 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
 }
-
 p {
     font-size: 3em;
     margin: 0 auto;
@@ -25,7 +24,6 @@ p {
     text-transform: uppercase;
     letter-spacing: 2px;
   }
-
 nav {
     background-color: #333;
 }
