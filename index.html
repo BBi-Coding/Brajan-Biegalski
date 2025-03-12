@@ -8,8 +8,9 @@
     <!-- Add Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
 </head>
-
+<img src="./img/l.png" alt="Logo" class="logo">
 <body>
+    
     <div id="app">
         <nav>
             <ul class="navbar">
@@ -21,9 +22,25 @@
 
         <br>
 
-        <p>Yoo Whats up ali</p>
+        <p>Demo presentation Website</p>
         <br><br><br>
-        <p1 class="p1">Ofcourse i can change everything the fonts color. It does not matter. how big where how small etc.</p1>
+        <p1 class="p1">Ofcourse i can change everything the fonts color. It does not matter <p2 class="howbig">how big,</p2>  where, how small etc.</p1>
+
+        <br><br>
+        
+
+        <!-- Slideshow -->
+        <section class="slideshow-container">
+            <img v-for="(image, index) in images" :key="index" :src="image" 
+                 class="slide" :class="{ active: index === currentIndex }">
+            <div class="controls">
+                <button @click="prevSlide">❮</button>
+                <button @click="nextSlide">❯</button>
+            </div>
+        </section>
+        <br>
+        <p2 class="p2">Ofcourse these images will be changed and the quality will be better.</p2>
+        <br><br>
 
     </div>
 
@@ -31,31 +48,68 @@
         <iframe src="https://storage.googleapis.com/maps-solutions-chbm17t831/locator-plus/h00z/locator-plus.html" class="map-iframe"></iframe>
     </div>
 
+    <div class="parent-container">
+        <p3 class="p3">Make text in the middle</p3>
+    </div>
+
+
     <script>
-        // Vue.js instance
-        const app = Vue.createApp({
-            data() {
-                return {
-                    navItems: [
-                        { id: 1, name: 'Home', link: 'index.html' },
-                        { id: 2, name: 'Service', link: 'service.html' },
-                        { id: 3, name: 'Team', link: 'team.html' },
-                        { id: 4, name: 'Impressum', link: 'impressum.html' }
-                    ]
-                };
-            }
+        const { createApp, ref, onMounted } = Vue;
+
+        const app = createApp({
+                    setup() {
+                        // Navigation items
+                        const navItems = ref([
+                            { id: 1, name: 'Home', link: 'index.html' },
+                            { id: 2, name: 'Service', link: 'service.html' },
+                            { id: 3, name: 'Team', link: 'team.html' },
+                            { id: 4, name: 'Impressum', link: 'impressum.html' }
+                        ]);
+
+                        // Slideshow Images
+                        const images = ref([
+                            "img/1.jpg",
+                            "img/2.jpg",
+                            "img/3.jpg",
+                            "img/4.jpg"
+                        ]);
+
+                        const currentIndex = ref(0);
+
+                        // Next Slide
+                        const nextSlide = () => {
+                            currentIndex.value = (currentIndex.value + 1) % images.value.length;
+                        };
+
+                        // Previous Slide
+                        const prevSlide = () => {
+                            currentIndex.value = (currentIndex.value - 1 + images.value.length) % images.value.length;
+                        };
+
+                        // Auto-Slide
+                        onMounted(() => {
+                            setInterval(nextSlide, 5000);
+                        });
+
+                        return { navItems, images, currentIndex, nextSlide, prevSlide };
+                    }
         });
+
         app.mount('#app');
 
         function myMap() {
-            var mapProp= {
-                center:new google.maps.LatLng(51.508742,-0.120850),
-                zoom:5,
+            var mapProp = {
+                center: new google.maps.LatLng(51.508742, -0.120850),
+                zoom: 5,
             };
-                var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-            }
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        }
     </script>
-
+    <section class="impressum">
+                <footer>
+                    <p1>&copy; 2025 Your Company Name. Alle Rechte vorbehalten.</p1>
+                </footer>
+            </section>
 </body>
 
    
