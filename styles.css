@@ -31,19 +31,14 @@ body {
 
 p {
     font-size: 3em;
-    margin: 0 auto;
-    width: 80%;
-    color: #ffffff; /* grey color */
+    width: 100%;
+    color: #ffffff;
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
-    border: 2px solid #292828;
     padding: 20px;
-    background-color: #6b656b;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(43, 43, 43, 0.5);
-    text-transform: uppercase;
+    background: #333333;
     letter-spacing: 2px;
-  }
+}
 
 .p1 {
     display: flex;
@@ -105,7 +100,7 @@ p4{
 }
 
 nav {
-    background-color: #333;
+    background-color: #6c6a61;
 }
 
 /* Base styles for larger screens */
