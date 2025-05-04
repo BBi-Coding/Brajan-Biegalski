@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>impressum</title>
+    <title>Home</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Add Vue.js -->
+    <!-- Add Vue.js from CDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
 </head>
-<img src="./img/l.png" alt="Logo" class="logo">
+
 <body>
+    <!-- Logo -->
+    <img src="./img/l.jpg" alt="Logo" class="logo">
+
     <div id="app">
         <nav>
             <ul class="navbar">
@@ -19,10 +22,13 @@
             </ul>
         </nav>
 
+        <br>
         <section class="impressum">
             <header>
                 <h1>Impressum</h1>
             </header>
+            <br>
+            <br>
 
             <div class="company-info">
                 <h2>Angaben gemäß § 5 TMG</h2>
@@ -55,25 +61,51 @@
                 <p1>&copy; 2025 Your Company Name. Alle Rechte vorbehalten.</p1>
             </footer>
         </section>
-
     </div>
-
     <script>
-        // Vue.js instance
-        const app = Vue.createApp({
-            data() {
-                return {
-                    navItems: [
-                        { id: 1, name: 'Home', link: 'index.html' },
-                        { id: 2, name: 'Service', link: 'service.html' },
-                        { id: 3, name: 'Team', link: 'team.html' },
-                        { id: 4, name: 'Impressum', link: 'impressum.html' }
-                    ]
-                };
-            }
+        const { createApp, ref, onMounted } = Vue;
+
+        const app = createApp({
+                    setup() {
+                        // Navigation items
+                        const navItems = ref([
+                            { id: 1, name: 'Home', link: 'index.html' },
+                            { id: 2, name: 'Service', link: 'service.html' },
+                            { id: 3, name: 'Team', link: 'team.html' },
+                            { id: 4, name: 'Impressum', link: 'impressum.html' }
+                        ]);
+
+                        // Slideshow Images
+                        const images = ref([
+                            "img/1.jpg",
+                            "img/2.jpg",
+                            "img/3.jpg",
+                            "img/4.jpg"
+                        ]);
+
+                        const currentIndex = ref(0);
+
+                        // Next Slide
+                        const nextSlide = () => {
+                            currentIndex.value = (currentIndex.value + 1) % images.value.length;
+                        };
+
+                        // Previous Slide
+                        const prevSlide = () => {
+                            currentIndex.value = (currentIndex.value - 1 + images.value.length) % images.value.length;
+                        };
+
+                        // Auto-Slide
+                        onMounted(() => {
+                            setInterval(nextSlide, 5000);
+                        });
+
+                        return { navItems, images, currentIndex, nextSlide, prevSlide };
+                    }
         });
 
         app.mount('#app');
     </script>
+
 </body>
 </html>

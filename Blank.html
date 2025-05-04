@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Vue.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+</head>
+
+<body>
+    <!-- Logo -->
+    <img src="./img/l.jpg" alt="Logo" class="logo">
+
+    <div id="app">
+        <nav>
+            <ul class="navbar">
+                <li v-for="item in navItems" :key="item.id">
+                    <a :href="item.link">{{ item.name }}</a>
+                </li>
+            </ul>
+        </nav>
+
+        <br>
+
+    <script>
+        const { createApp, ref, onMounted } = Vue;
+
+        const app = createApp({
+                    setup() {
+                        // Navigation items
+                        const navItems = ref([
+                            { id: 1, name: 'Home', link: 'index.html' },
+                            { id: 2, name: 'Service', link: 'service.html' },
+                            { id: 3, name: 'Team', link: 'team.html' },
+                            { id: 4, name: 'Impressum', link: 'impressum.html' }
+                        ]);
+
+                        // Slideshow Images
+                        const images = ref([
+                            "img/1.jpg",
+                            "img/2.jpg",
+                            "img/3.jpg",
+                            "img/4.jpg"
+                        ]);
+
+                        const currentIndex = ref(0);
+
+                        // Next Slide
+                        const nextSlide = () => {
+                            currentIndex.value = (currentIndex.value + 1) % images.value.length;
+                        };
+
+                        // Previous Slide
+                        const prevSlide = () => {
+                            currentIndex.value = (currentIndex.value - 1 + images.value.length) % images.value.length;
+                        };
+
+                        // Auto-Slide
+                        onMounted(() => {
+                            setInterval(nextSlide, 5000);
+                        });
+
+                        return { navItems, images, currentIndex, nextSlide, prevSlide };
+                    }
+        });
+
+        app.mount('#app');
+    </script>
+
+    <!-- Footer -->
+    <section class="impressum">
+        <footer>
+            <p1>&copy; 2025 Your Company Name. Alle Rechte vorbehalten.</p1>
+        </footer>
+    </section>
+</body>
+</html>
