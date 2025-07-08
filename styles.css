@@ -7,14 +7,14 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
+    background: linear-gradient(135deg, #4e4e4e, #6b6b6b); /* soft dark grey gradient */
 }
 
 .logo {
-    width: 200px; /* Adjust size as needed */
+    width: 100px; /* Adjust size as needed */
     height: auto;
     display: block;
-    margin: 0 auto; /* Center the logo */
+    margin-right: 20px;  /* Optional: Adds space between logo and navbar */
 }
 
 .howbig{
@@ -28,7 +28,15 @@ body {
     box-shadow: 0 0 20px rgba(43, 43, 43, 0.5);
 
 }
-
+/* Header Container */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between logo and navbar */
+    padding: 10px 20px;
+    background-color: #5e5e5e; /* Background color for the whole header */
+    width: 100%; /* Ensure the container takes the full width */
+}
 p {
     font-size: 3em;
     width: 100%;
@@ -40,100 +48,109 @@ p {
     letter-spacing: 2px;
 }
 
-.p1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    color: #000000; /* grey color */
-    font-family: 'Courier New', Courier, monospace;
-    text-align: center;
-    font-size: 24px; /* Increased font size */
-    
-  }
-  .p2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin: 0px 20px;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold; /* Bold text */
-    text-align: left;
-    font-size: 24px; /* Increased font size */
-    padding: 10px;
-    letter-spacing: 0.3px; /* Adjust the letter spacing */
-    
-    /* Text styling */
-    color: #000; /* Normal black color for text */
-    
-    /* Modern border styling */
-    border: 3px solid #292828; /* Solid border with a dark color */
-
-    
-    /* Box shadow for depth */
-    box-shadow: 0 10px 20px rgba(43, 43, 43, 0.5); /* Softer shadow */
-}
-
-
-  .parent-container {
-    text-align: center; /* Centers the inline-block element inside the container */
-    }
-
-  .p3 {
-    display: inline-block; /* Make the element fit its content */
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto; /* Center the element horizontally */
-    color: #000000; /* grey color */
-    font-family: 'Courier New', Courier, monospace;
-    text-align: center; /* Center text inside the element */
-    font-size: 24px; /* Increased font size */
-    border: 2px solid #292828;
-    border-radius: 10px; /* Rounded corners */
-    padding: 10px;
-    background-color: #d1d1d1;
-    box-shadow: 0 10px 10px rgba(43, 43, 43, 0.5);
-}
-p4{
-
-}
-
 nav {
-    background-color: #6c6a61;
+    background-color: #5e5e5e;
+    flex-grow: 1; /* Allow navbar to take available space */
+    display: flex;
+    justify-content: flex-start; /* Align navbar items to the left */
+    box-shadow: none; /* Removes any shadow from the nav */
+
 }
 
-/* Base styles for larger screens */
 .navbar {
     list-style: none;
     display: flex;
     justify-content: space-evenly;
+    padding: 0;
+    margin: auto; /* Added margin to move navbar to the right */
+    
+
+}
+.nav-item {
+    position: relative;
+      white-space: nowrap;
 
 }
 
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Full width */
+    display: none;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-item:hover .dropdown {
+    display: block;
+    transform: translateY(0); /* Slide down effect */
+    opacity: 1; /* Fade in effect */
+}
+
+.dropdown li {
+    display: block;
+
+}
+
+.dropdown a {
+    padding: 10px 20px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    
+
+}
+
+.dropdown a:hover {
+    background-color: #ffffff;
+}
 .navbar li {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
     flex: 1;
+
 }
 
 .navbar a {
-    color: white;
+    color: rgb(90, 90, 90);
+    font-weight: bold; /* Bold text */
     text-decoration: none;
-    font-size: 18px;
-    padding: 15px 20px;
+    font-size: 20px;
+    padding: 15px 80px; /* Increase padding for more space inside each link */
     display: block;
     width: 100%;
     text-align: center;
     transition: background-color 0.3s, transform 0.3s;
+    font-family: 'Courier New', Courier, monospace; /* Courier font */
+    background-color: transparent;
+    color: #e0e0e0;
+
+    border-radius: 0; /* Removes border radius from all nav links */
 }
 
+/* Hover Effects */
 .navbar a:hover {
-    background-color: #575757;
+    background-color: #7a7a7a;
     transform: scale(1.05);
 }
-
+.navbar li {
+    display: flex;
+    flex-direction: column; /* Stack link and dropdown */
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Required for dropdown absolute positioning */
+    flex: 1;
+}
 /* Optional: Add borders to separate items */
 .navbar li:nth-child(1) a {
     border-right: 1px solid #ddd;
@@ -147,60 +164,79 @@ nav {
     border-right: 1px solid #ddd;
 }
 
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    .navbar li {
-        width: 100%;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .navbar a {
-        font-size: 16px;
-        padding: 12px;
-    }
-    .slideshow-container {
-        height: 600px !important; /* Adjust height for tablets */
-    }
+/* The menu button */
+.navbar .links{
+    display: none;
 }
-/* Responsive styles for screens smaller than 480px */
-@media (max-width: 480px) {
-    .slideshow-container {
-        height: 400px !important; /* Adjust height for tablets */
-    }
-
-    .navbar {
-        flex-direction: column;
-        align-items: stretch; /* Ensure items take full width */
-    }
-
-    .navbar li {
-        width: 100%;
-        border-bottom: none; /* Remove borders between items */
-    }
-
-    .navbar a {
-        font-size: 16px;
-        padding: 12px;
-        text-align: center;
-        border: none; /* Remove borders on navigation items */
-    }
-
-    .navbar a:hover {
-        background-color: #575757;
-        transform: scale(1.05);
-    }
+.nav-button {
+    display: none;
 }
+    
+@media (max-width: 1100px) {
+
+    .logo {
+        justify-content: center; 
+
+    }
+  
+    .navbar .links {
+        display: flex;
+        flex-direction: column;  /* Align items vertically */
+        position: absolute;      /* Make it float over the content */
+        top: 60px;               /* Adjust to the height of the navbar */
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Hide nav items in smaller screens */
+    .navbar .nav-item {
+        display: none;
+    }
+
+    /* Show the hamburger menu icon */
+    .nav-button {
+        display: block;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        right: 20px;
+        top: 10px;
+        position: absolute;
+    }
+.gray-rectangle {
+    width: 432px;
+    height: 130px;
+    background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+    font-weight: 550;
+    text-align: center;
+    border-radius: 15px;
+    position: absolute;
+    left: 50%;                  /* Center from the left */
+    transform: translateX(-50%);/* Adjust position to true center */
+    z-index: 1000;
+    color: #ffffff;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+    box-shadow: 0 15px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 0 #5a5a5a, 4px 4px 0 #555;
+    transition: top 0.8s ease;
+}
+
+     
+}
+
 
 
 /* Impressum Styling */
 .impressum {
     max-width: 900px;
     margin: 30px auto;
-    background-color: #fff;
+    background: linear-gradient(135deg, #6a3093, #a044ff);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 5px 19px rgba(0, 0, 0, 0.1);
@@ -251,11 +287,12 @@ nav {
 /* Slideshow */
 .slideshow-container {
     position: relative;
-    width: 97%;
+    width: 100%; /* Set to 100% to take full width */
     height: 600px;
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #444; /* fallback grey */
+
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
 
     display: flex;
     justify-content: center;
@@ -286,7 +323,7 @@ nav {
 }
 
 button {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(78, 78, 78, 0.5);
     color: white;
     border: none;
     padding: 10px 15px;
@@ -466,4 +503,50 @@ header {
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+@media (min-width: 1100px) {
+
+.gray-rectangle {
+    width: 432px;
+    height: 140px;
+    background: linear-gradient(135deg, #6a3093, #a044ff);
+    font-weight: 550;
+    text-align: center;
+    border-radius: 15px;
+    position: absolute;
+    top: 535px;  /* Start higher */
+    right: 100px;
+    z-index: 1000;
+    color: #ffffff;
+    font-size: 27px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+
+    text-shadow: 2px 2px 0 #000000, 4px 4px 0 #747474;
+    transition: top 0.8s ease;
+}
+
+.gray-rectangle.move-up {
+    top: 610px;   /* Move down by 100px */
+}
+
+.rectangle1 {
+    width: 450px;
+    height: 162px;
+    background: linear-gradient(135deg, #9e9e9e, #cacaca);
+    border-radius: 15px;
+    position: absolute;
+    top: 525px;   /* Start higher */
+    right: 91px;
+    z-index: 999;
+    color: #b3b3b3;
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+    transition: top 0.8s ease;
+}
+
+.rectangle1.move-up {
+    top: 600px;   /* Move down by 100px */
+} 
 }
