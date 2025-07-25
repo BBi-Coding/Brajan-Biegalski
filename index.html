@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- SEO Meta Tags -->
@@ -18,129 +19,37 @@
 
     <link rel="stylesheet" href="styles.css">
     <!-- Add Vue.js from CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+    <!-- Link to your app.js in the root -->
+    <script src="/app.js" defer></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+
 </head>
-
 <body>
-   
+  <h1>Brajan Biegalski</h1>
+  <div class="page-wrapper">
+    <div class="slideshow-container">
+      <div class="slide fade" style="background-image: url('img/1.jpg')"></div>
+      <div class="slide fade" style="background-image: url('img/2.jpg')"></div>
+      <div class="slide fade" style="background-image: url('img/3.jpg')"></div>
+      <div class="slide fade" style="background-image: url('img/4.jpg')"></div>
 
-    <div id="app">
-
-        <div class="header-container">
-            <!-- Logo 
-            <a href="index.html">
-                 <img src="./img/l.jpg" alt="Logo" class="logo">
-            </a>  -->
-        
-            <!-- Navigation Bar -->
-            <nav>
-                <ul class="navbar">
-                    <li v-for="item in navItems" :key="item.id" class="nav-item" 
-                        @mouseover="hoveredItem = item.id" @mouseleave="hoveredItem = null">
-                        <a :href="item.link">{{ item.name }}</a>
-                
-                        <!-- Dropdown for items with children -->
-                        <ul v-if="item.children.length && hoveredItem === item.id" class="dropdown">
-                            <li v-for="(child, idx) in item.children" :key="idx">
-                                <a :href="child.link">{{ child.name }}</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <ul class="links">
-                        <li><a href = "index.html">Home Page</a></li>
-                        <li><a href = "team.html">Team</a></li>
-                        <li><a href = "impressum.html">Impressum</a></li>
-                        <li><a href = "contact.html">Contact</a></li>
-                    </ul>
-                    
-                    <img src="./img/menu-icon.png" id="navToggle" class="nav-button" />
-                    <div class="toggle-btn"></div>
-                </ul>
-            </nav>
-        </div>
-
-
-
-        <!-- Slideshow -->
-        <section class="slideshow-container">
-            <img v-for="(image, index) in images" :key="index" :src="image" class="slide" :class="{ active: index === currentIndex }">
-            <div class="controls">
-                <button @click="prevSlide">❮</button>
-                <button @click="nextSlide">❯</button>
-            </div>
-        </section>
-<br>
-<div class="gray-rectangle" :class="{ 'move-up': animateRectangle }"> Young, up and coming, Developer, IT information, Windows Systems, etc.</div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<div class="rectangle1" :class="{ 'move-up': animateRectangle }"></div>
+      <div class="dots-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+      </div>
     </div>
 
+    <script src="app.js"></script>
 
-<script>
-const { createApp, ref, onMounted, onUnmounted } = Vue;
-
-const app = createApp({
-    setup() {
-        const navItems = ref([
-            { id: 1, name: 'Home', link: 'index.html', children: [] },
-            { id: 3, name: 'About Me', link: 'team.html', children: [] },
-            { id: 4, name: 'Impressum', link: 'impressum.html', children: [] },
-            { id: 5, name: 'Contact', link: 'contact.html', children: [] },
-        ]);
-        const hoveredItem = ref(null);
-        const images = ref([
-            "img/1.jpg",
-            "img/2.jpg",
-            "img/3.jpg",
-            "img/4.jpg"
-        ]);
-        const currentIndex = ref(0);
-        const animateRectangle = ref(false);
-
-        const nextSlide = () => {
-            currentIndex.value = (currentIndex.value + 1) % images.value.length;
-        };
-        const prevSlide = () => {
-            currentIndex.value = (currentIndex.value - 1 + images.value.length) % images.value.length;
-        };
-
-        // Animate rectangles only on scroll
-        const handleScroll = () => {
-            animateRectangle.value = window.scrollY > 100;
-        };
-
-        onMounted(() => {
-            setInterval(nextSlide, 5000);
-            window.addEventListener('scroll', handleScroll);
-        });
-
-        onUnmounted(() => {
-            window.removeEventListener('scroll', handleScroll);
-        });
-
-        return {
-            navItems,
-            hoveredItem,
-            images,
-            currentIndex,
-            nextSlide,
-            prevSlide,
-            animateRectangle
-        };
-    }
-});
-
-app.mount('#app');
-</script> 
-
-    <!-- Footer -->
-    <section class="impressum">
-        <footer>
-            <p1>&copy; 2025 Brajan Biegalski Services. Alle Rechte vorbehalten.</p1>
-        </footer>
-    </section>
-
+    <div>
+        <p>I'm a passionate web developer and creator behind bbi-coding. I specialize in building modern, responsive websites and apps with clean, elegant design.</p>
+    </div>
+  </div>
 </body>
 
 </html>
