@@ -1,7 +1,6 @@
 body {
   margin: 0;
   background: #111;
-  display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -10,24 +9,28 @@ body {
 }
 
 h1{
-  position: fixed;
+  position: relative;
   top: 5px;
   font-family: 'Work Sans', serif;
   font-weight: 300;
 
 }
-
-
-
-body {
-  background: #111;
+.site-header {
+  text-align: center;
+  padding: 10px 0 20px;
 }
 
+.site-header h1 {
+  font-size: 3em;
+  font-weight: 300;
+  margin: 0;
+  color: white;
+  font-family: 'Work Sans', sans-serif;
+}
 .page-wrapper {
   width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -81,6 +84,7 @@ body {
   bottom: 15px;
   width: 100%;
   text-align: center;
+    z-index: 1000;
 }
 
 .dot {
@@ -138,8 +142,6 @@ body {
       #464646,
       #2b2b2b
     );
-
-
     padding: 15px 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
