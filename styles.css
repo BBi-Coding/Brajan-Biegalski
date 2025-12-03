@@ -21,10 +21,14 @@ body {
     line-height: 1.6;
     background-color: var(--background-light);
     overflow-x: hidden;
+    /* FIX: Pushes all content down below the fixed navbar */
+    padding-top: 5rem; 
 }
 
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
 /* --- Navigation --- */
 .navbar {
@@ -41,7 +45,7 @@ ul { list-style: none; }
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem 0; /* Adjusted padding here */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -72,7 +76,7 @@ ul { list-style: none; }
 
 /* --- Hero Section --- */
 .hero {
-    height: 100vh;
+    height: calc(100vh - 5rem); /* Adjusted for body padding */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -105,12 +109,12 @@ ul { list-style: none; }
 .btn-outline { border: 2px solid var(--primary-color); color: var(--primary-color); }
 .btn-outline:hover { background: var(--primary-color); color: var(--white); }
 
-/* --- Services Section --- */
+/* --- General Sections --- */
 .services-section { padding: 5rem 2rem; }
-.container { max-width: 1200px; margin: 0 auto; }
 .section-title { text-align: center; margin-bottom: 3rem; }
 .section-title h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
 
+/* --- Services Grid --- */
 .service-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -206,13 +210,70 @@ footer { padding: 2rem; background: #0f172a; color: #94a3b8; text-align: center;
 .hidden { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
 .show { opacity: 1; transform: translateY(0); }
 
+/* --- Legal Pages (Impressum / Datenschutz) --- */
+.legal-section {
+    /* Adjusted padding now that the body handles the top offset */
+    padding: 2rem 2rem 5rem; 
+    min-height: 80vh;
+}
+
+.legal-box {
+    background: #f1f5f9; /* Light grey background */
+    border-left: 5px solid var(--primary-color);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+}
+
+.legal-content {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    max-width: 800px;
+    margin: 0 auto; /* Zentriert den Kasten */
+}
+
+.legal-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+}
+
+.legal-content h2 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.legal-content h3 {
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.legal-content p {
+    margin-bottom: 1rem;
+    color: #475569;
+}
+
+.legal-divider {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 3rem 0;
+}
+
 /* --- Mobile Responsive --- */
 @media (max-width: 768px) {
     .menu-toggle { display: block; }
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 5rem; /* Adjusted to sit correctly below the fixed header */
         flex-direction: column;
         background: var(--white);
         width: 100%;
@@ -224,5 +285,5 @@ footer { padding: 2rem; background: #0f172a; color: #94a3b8; text-align: center;
     .nav-menu li { margin: 1.5rem 0; }
     .hero h1 { font-size: 2.2rem; }
     .split-layout { flex-direction: column; }
-    .image-placeholder { height: 300px; }
+    .legal-content { padding: 2rem 1rem; }
 }

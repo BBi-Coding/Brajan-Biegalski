@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Brajan Biegalski - Ihr Partner für Smart Home, IT-Service und Alltagsunterstützung in Dinslaken und NRW.">
     <title>Brajan Biegalski | Smart Home & Alltags-Assistenz</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.css">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -67,7 +68,7 @@
 
                 <div class="service-card hidden" onclick="toggleDetails('sec-details')">
                     <div class="icon-box">
-                        <i class="fa-solid fa-shield-halved"></i>
+                        <i class="fa-solid fa-user-shield"></i>                    
                     </div>
                     <h3>Sicherheit & Automation</h3>
                     <p>Fortschrittliche Vernetzung, Datensicherheit und Haussteuerung.</p>
@@ -75,10 +76,10 @@
 
                     <div id="sec-details" class="service-details">
                         <ul>
-                            <li><i class="fa-solid fa-database"></i> Zentraler Speicher (SMB): Zugriff auf Daten von jedem Gerät</li>
-                            <li><i class="fa-solid fa-lock"></i> Netzwerksicherheit & Kameraschutz gegen Eindringlinge</li>
-                            <li><i class="fa-solid fa-temperature-half"></i> Digitale Steuerung für Fußbodenheizung</li>
-                            <li><i class="fa-solid fa-border-all"></i> Automatische Rolladen- & Fenstersteuerung</li>
+                            <li><i class="fa-solid fa-check"></i> Zentraler Speicher (SMB): Zugriff auf Daten von jedem Gerät</li>
+                            <li><i class="fa-solid fa-check"></i> Netzwerksicherheit & Kameraschutz</li>
+                            <li><i class="fa-solid fa-check"></i> Digitale Steuerung für Fußbodenheizung</li>
+                            <li><i class="fa-solid fa-check"></i> Automatische Rolladen- & Fenstersteuerung</li>
                         </ul>
                     </div>
                 </div>
@@ -90,12 +91,12 @@
         <div class="container split-layout hidden">
             <div class="about-text">
                 <h2>Zuverlässig. Kompetent. Nah.</h2>
-                <p>Mein Name ist Brajan Biegalski. Ich kombiniere technisches Know-how mit praktischer Unterstützung.</p>
-                <p>Ob es darum geht, Ihr Netzwerk sicher einzurichten oder Ihnen im Haushalt unter die Arme zu greifen – mein Ziel ist es, Ihren Alltag einfacher und angenehmer zu gestalten.</p>
+                <p>Mein Name ist Brajan Biegalski. Ich stehe für moderne IT-Dienstleistungen und smarte Gebäudetechnik.</p>
+                <p>Ob es darum geht, Ihr Netzwerk gegen Eindringlinge zu sichern, einen zentralen Datenspeicher (SMB) einzurichten oder Ihr Smart Home intelligent zu steuern – mein Ziel ist es, Ihr Zuhause sicher und effizient zu vernetzen.</p>
                 <div class="stats">
                     <div class="stat-item">
                         <span class="number">100%</span>
-                        <span class="label">Diskretion</span>
+                        <span class="label">Sicherheit</span>
                     </div>
                     <div class="stat-item">
                         <span class="number">NRW</span>
@@ -118,7 +119,7 @@
                 <div class="contact-info">
                     <div class="info-item">
                         <i class="fa-solid fa-phone"></i>
-                        <p>+49 (0) 123 456789</p>
+                        <p>+49 (0) 176 55742979</p>
                     </div>
                     <div class="info-item">
                         <i class="fa-solid fa-envelope"></i>
@@ -130,15 +131,19 @@
                     </div>
                 </div>
                 
-                <form class="contact-form">
-                    <input type="text" placeholder="Ihr Name" required>
-                    <input type="email" placeholder="Ihre E-Mail" required>
-                    <select>
-                        <option>Interesse an: IT & Smart Home Einrichtung</option>
-                        <option>Interesse an: Sicherheit, SMB & Automation</option>
-                        <option>Sonstiges</option>
+                <form class="contact-form" action="mailto:info@brajanbiegalski.com" method="post" enctype="text/plain">
+                    <input type="text" name="name" placeholder="Ihr Name" required>
+                    
+                    <input type="email" name="reply_to" placeholder="Ihre E-Mail" required>
+                    
+                    <select name="service">
+                        <option value="IT & Smart Home">Interesse an: IT & Smart Home Einrichtung</option>
+                        <option value="Security & Automation">Interesse an: Sicherheit, SMB & Automation</option>
+                        <option value="Other">Sonstiges</option>
                     </select>
-                    <textarea placeholder="Ihre Nachricht" rows="5" required></textarea>
+                    
+                    <textarea name="message" placeholder="Ihre Nachricht" rows="5" required></textarea>
+                    
                     <button type="submit" class="btn btn-filled">Nachricht senden</button>
                 </form>
             </div>
@@ -149,12 +154,14 @@
         <div class="container">
             <p>&copy; 2025 Brajan Biegalski. Alle Rechte vorbehalten.</p>
             <div class="footer-links">
-                <a href="#">Impressum</a>
-                <a href="#">Datenschutz</a>
+                <a href="impressum.html">Impressum</a>
+                <a href="datenschutz.html">Datenschutz</a>
             </div>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.umd.js"></script>
+    
     <script src="app.js"></script>
 </body>
 </html>

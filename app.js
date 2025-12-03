@@ -60,3 +60,67 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         });
     });
 });
+
+
+// 5. Cookie Consent Configuration
+// Ensure the library is loaded in HTML before this runs
+CookieConsent.run({
+    guiOptions: {
+        consentModal: {
+            layout: "box",
+            position: "bottom left",
+            equalWeightButtons: true,
+            flipButtons: false
+        },
+        preferencesModal: {
+            layout: "box",
+            position: "right",
+            equalWeightButtons: true,
+            flipButtons: false
+        }
+    },
+    categories: {
+        necessary: {
+            readOnly: true
+        },
+        analytics: {}
+    },
+    language: {
+        default: "de",
+        translations: {
+            de: {
+                consentModal: {
+                    title: "Wir verwenden Cookies",
+                    description: "Diese Website nutzt Cookies, um Ihnen das beste Erlebnis zu bieten.",
+                    acceptAllBtn: "Alle akzeptieren",
+                    acceptNecessaryBtn: "Nur Notwendige",
+                    showPreferencesBtn: "Einstellungen",
+                    footer: "<a href='datenschutz.html'>Datenschutz</a>\n<a href='impressum.html'>Impressum</a>"
+                },
+                preferencesModal: {
+                    title: "Cookie-Einstellungen",
+                    acceptAllBtn: "Alle akzeptieren",
+                    acceptNecessaryBtn: "Nur Notwendige",
+                    savePreferencesBtn: "Einstellungen speichern",
+                    closeIconLabel: "Schließen",
+                    sections: [
+                        {
+                            title: "Cookie-Nutzung",
+                            description: "Ich nutze Cookies, um die grundlegenden Funktionen der Website sicherzustellen und das Nutzererlebnis zu verbessern."
+                        },
+                        {
+                            title: "Notwendige Cookies",
+                            description: "Diese Cookies sind für das Funktionieren der Website unerlässlich.",
+                            linkedCategory: "necessary"
+                        },
+                        {
+                            title: "Analyse & Performance",
+                            description: "Diese Cookies helfen mir zu verstehen, wie Besucher mit der Website interagieren (z.B. Google Analytics in Zukunft).",
+                            linkedCategory: "analytics"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+});
