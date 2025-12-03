@@ -1,93 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- SEO Meta Tags -->
-  <title>Brajan Biegalski</title>
-  <meta name="description" content="Welcome to the website of Brajan Biegalski">
-  <meta name="keywords" content="Brajan Biegalski, developer, portfolio, Freelancer">
-  <meta name="author" content="Brajan Biegalski">
-
-  <!-- Social Sharing (Open Graph) -->
-  <meta property="og:title" content="Brajan Biegalski">
-  <meta property="og:description" content="Visit the personal website of Brajan Biegalski">
-  <meta property="og:url" content="https://brajanbiegalski.com/">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://brajanbiegalski.com/img/2.jpg"> <!-- Change to your preview image -->
-  <link rel="canonical" href="https://brajanbiegalski.com/" />
-
-
+    <meta name="description" content="Brajan Biegalski - Ihr Partner für Smart Home, IT-Service und Alltagsunterstützung in Dinslaken und NRW.">
+    <title>Brajan Biegalski | Smart Home & Alltags-Assistenz</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Add Vue.js from CDN -->
-<!--   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>-->
-
-    <!-- It is the icon-->
-    <link rel="icon" href="/img/x-icon.png" type="image/png">
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Brajan Biegalski",
-          "url": "https://brajanbiegalski.com",
-          "image": "https://brajanbiegalski.com/img/2.jpg",
-          "jobTitle": "IT Support Specialist",
-          "description": "Brajan Biegalski Helping people solve computer and IT issues quickly and reliably."
-        }
-    </script>
-    <!-- Link to your app.js in the root -->
-    <script src="/app.js" defer></script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-  
 <body>
-  <header class="site-header">
-    <h1>Brajan Biegalski</h1>
-  </header>
 
-  <div class="page-wrapper">
-    <div class="slideshow-container">
-      <div class="slide fade" style="background-image: url('img/1.jpg')"></div>
-      <div class="slide fade" style="background-image: url('img/2.jpg')"></div>
-      <div class="slide fade" style="background-image: url('img/3.jpg')"></div>
-      <div class="slide fade" style="background-image: url('img/4.jpg')"></div>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">BrajanBiegalski<span class="dot">.</span>com</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Start</a></li>
+                <li><a href="#services" class="nav-link">Leistungen</a></li>
+                <li><a href="#about" class="nav-link">Über Mich</a></li>
+                <li><a href="#contact" class="nav-link btn-primary">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
 
-      <div class="dots-container">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-        <span class="dot" onclick="currentSlide(4)"></span>
-      </div>
-    </div>
+    <header id="home" class="hero">
+        <div class="hero-content hidden">
+            <h1>Ihr Zuhause. <span class="highlight">Smart & Gepflegt.</span></h1>
+            <p>Professionelle IT-Einrichtung, Smart Home Lösungen und zuverlässige Alltagsunterstützung in Dinslaken & NRW.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-filled">Meine Leistungen</a>
+                <a href="#contact" class="btn btn-outline">Gespräch vereinbaren</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-title hidden">
+                <h2>Was kann ich für Sie tun?</h2>
+                <p>Wählen Sie einen Bereich, um mehr zu erfahren.</p>
+            </div>
+
+            <div class="service-grid">
+                <div class="service-card hidden" onclick="toggleDetails('tech-details')">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-wifi"></i>
+                    </div>
+                    <h3>IT & Smart Home</h3>
+                    <p>Technik, die funktioniert. Von WLAN bis zur Automatisierung.</p>
+                    <button class="more-info-btn">Details anzeigen <i class="fa-solid fa-chevron-down"></i></button>
+                    
+                    <div id="tech-details" class="service-details">
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> Einrichtung von WLAN & Routern (Mesh)</li>
+                            <li><i class="fa-solid fa-check"></i> Smart Home Installation (Licht, Heizung, Sicherheit)</li>
+                            <li><i class="fa-solid fa-check"></i> Server Setup (Ubuntu, Home Assistant)</li>
+                            <li><i class="fa-solid fa-check"></i> PC & Smartphone Hilfe für Senioren</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-card hidden" onclick="toggleDetails('sec-details')">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3>Sicherheit & Automation</h3>
+                    <p>Fortschrittliche Vernetzung, Datensicherheit und Haussteuerung.</p>
+                    <button class="more-info-btn">Details anzeigen <i class="fa-solid fa-chevron-down"></i></button>
+
+                    <div id="sec-details" class="service-details">
+                        <ul>
+                            <li><i class="fa-solid fa-database"></i> Zentraler Speicher (SMB): Zugriff auf Daten von jedem Gerät</li>
+                            <li><i class="fa-solid fa-lock"></i> Netzwerksicherheit & Kameraschutz gegen Eindringlinge</li>
+                            <li><i class="fa-solid fa-temperature-half"></i> Digitale Steuerung für Fußbodenheizung</li>
+                            <li><i class="fa-solid fa-border-all"></i> Automatische Rolladen- & Fenstersteuerung</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container split-layout hidden">
+            <div class="about-text">
+                <h2>Zuverlässig. Kompetent. Nah.</h2>
+                <p>Mein Name ist Brajan Biegalski. Ich kombiniere technisches Know-how mit praktischer Unterstützung.</p>
+                <p>Ob es darum geht, Ihr Netzwerk sicher einzurichten oder Ihnen im Haushalt unter die Arme zu greifen – mein Ziel ist es, Ihren Alltag einfacher und angenehmer zu gestalten.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="number">100%</span>
+                        <span class="label">Diskretion</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="number">NRW</span>
+                        <span class="label">Regional</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="img/brajan.jpg" alt="Brajan Biegalski" class="profile-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container hidden">
+            <h2>Lassen Sie uns starten</h2>
+            <p>Haben Sie Fragen oder benötigen Sie ein Angebot? Schreiben Sie mir.</p>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>+49 (0) 123 456789</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <p>info@brajanbiegalski.com</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>46535 Dinslaken, NRW</p>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <input type="text" placeholder="Ihr Name" required>
+                    <input type="email" placeholder="Ihre E-Mail" required>
+                    <select>
+                        <option>Interesse an: IT & Smart Home Einrichtung</option>
+                        <option>Interesse an: Sicherheit, SMB & Automation</option>
+                        <option>Sonstiges</option>
+                    </select>
+                    <textarea placeholder="Ihre Nachricht" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-filled">Nachricht senden</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Brajan Biegalski. Alle Rechte vorbehalten.</p>
+            <div class="footer-links">
+                <a href="#">Impressum</a>
+                <a href="#">Datenschutz</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="app.js"></script>
-
-    <div>
-        <p>Freundliche Computerhilfe – ich repariere Probleme und erkläre alles in Ruhe.</p>
-    </div>
-      <div>    
-        <p1>
-            💻 Computer kaputt?<br>
-            Keine Sorge – ich helfe Ihnen!<br>
-            <br>
-            📱 Handy oder Tablet Probleme?<br>
-            Ich zeige Ihnen Schritt für Schritt, wie alles wieder funktioniert.<br>
-            <br>
-            🌐 Internet spinnt?<br>
-            Ich sorge dafür, dass alles wieder läuft – einfach und verständlich.<br>
-            <br>
-            😊 Ich erkläre alles geduldig<br>
-            Kein Fachchinesisch, nur einfache Hilfe, die Sie verstehen.
-        </p1>
-      </div>
-  </div>
-  
 </body>
-
 </html>
-
-
-
