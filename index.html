@@ -3,24 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Brajan Biegalski - Ihr Partner für Smart Home, IT-Service und Alltagsunterstützung in Dinslaken und NRW.">
-    <title>Brajan Biegalski | Smart Home & Alltags-Assistenz</title>
+    
+    <title>IT-Service & Smart Home Dinslaken | PC-Hilfe & Seniorenhilfe</title>
+    <meta name="description" content="Professionelle PC-Hilfe, Smart Home Einrichtung und Seniorenhilfe in Dinslaken (46535) & Oberhausen. Ubuntu Server, WLAN & Alltagssupport vor Ort.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://www.brajanbiegalski.com/">
+
+    <meta property="og:type" content="business.business">
+    <meta property="og:title" content="PC-Hilfe & Smart Home Service Brajan Biegalski">
+    <meta property="og:description" content="Ihr Partner für IT-Probleme, WireGuard VPN, SMB-Server und Senioren-Alltagshilfe in NRW.">
+    <meta property="og:image" content="https://www.brajanbiegalski.com/img/social-share.jpg">
+    <meta property="og:url" content="https://www.brajanbiegalski.com/">
+    <meta property="og:locale" content="de_DE">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.css">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
+
+    </head>
 <body>
 
     <nav class="navbar">
         <div class="container">
             <a href="#" class="logo">BrajanBiegalski<span class="dot">.</span>com</a>
-            <div class="menu-toggle" id="mobile-menu">
+            
+            <button class="menu-toggle" id="mobile-menu" aria-label="Menü öffnen" aria-expanded="false" aria-controls="primary-navigation">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
-            <ul class="nav-menu">
+            </button>
+
+            <ul class="nav-menu" id="primary-navigation">
                 <li><a href="#home" class="nav-link">Start</a></li>
                 <li><a href="#services" class="nav-link">Leistungen</a></li>
                 <li><a href="#about" class="nav-link">Über Mich</a></li>
@@ -31,11 +48,11 @@
 
     <header id="home" class="hero">
         <div class="hero-content hidden">
-            <h1>Ihr Zuhause. <span class="highlight">Smart & Gepflegt.</span></h1>
-            <p>Professionelle IT-Einrichtung, Smart Home Lösungen und zuverlässige Alltagsunterstützung in Dinslaken & NRW.</p>
+            <h1>IT-Service & <span class="highlight">Smart Home NRW.</span></h1>
+            <p>Ihr lokaler Experte in Dinslaken & Oberhausen. Von der PC-Hilfe bis zum eigenen Cloud-Server.</p>
             <div class="hero-buttons">
-                <a href="#services" class="btn btn-filled">Meine Leistungen</a>
-                <a href="#contact" class="btn btn-outline">Gespräch vereinbaren</a>
+                <a href="#services" class="btn btn-filled">Leistungen ansehen</a>
+                <a href="#contact" class="btn btn-outline">Termin vereinbaren</a>
             </div>
         </div>
     </header>
@@ -43,43 +60,55 @@
     <section id="services" class="services-section">
         <div class="container">
             <div class="section-title hidden">
-                <h2>Was kann ich für Sie tun?</h2>
-                <p>Wählen Sie einen Bereich, um mehr zu erfahren.</p>
+                <h2>Kompetenz vor Ort</h2>
+                <p>Maßgeschneiderte Technik-Lösungen und persönliche Unterstützung.</p>
             </div>
 
             <div class="service-grid">
                 <div class="service-card hidden" onclick="toggleDetails('tech-details')">
-                    <div class="icon-box">
-                        <i class="fa-solid fa-wifi"></i>
-                    </div>
-                    <h3>IT & Smart Home</h3>
-                    <p>Technik, die funktioniert. Von WLAN bis zur Automatisierung.</p>
+                    <div class="icon-box"><i class="fa-solid fa-server"></i></div>
+                    <h3>IT, Server & Netzwerk</h3>
+                    <p>Einrichtung von Ubuntu-Servern, VPN und sicherem Dateizugriff.</p>
                     <button class="more-info-btn">Details anzeigen <i class="fa-solid fa-chevron-down"></i></button>
                     
                     <div id="tech-details" class="service-details">
                         <ul>
-                            <li><i class="fa-solid fa-check"></i> Einrichtung von WLAN & Routern (Mesh)</li>
-                            <li><i class="fa-solid fa-check"></i> Smart Home Installation (Licht, Heizung, Sicherheit)</li>
-                            <li><i class="fa-solid fa-check"></i> Server Setup (Ubuntu, Home Assistant)</li>
-                            <li><i class="fa-solid fa-check"></i> PC & Smartphone Hilfe für Senioren</li>
+                            <li><i class="fa-solid fa-check"></i> <strong>Heimserver:</strong> Ubuntu OS Einrichtung & Wartung</li>
+                            <li><i class="fa-solid fa-check"></i> <strong>Fernzugriff:</strong> Sicheres WireGuard VPN Setup</li>
+                            <li><i class="fa-solid fa-check"></i> <strong>Dateien:</strong> Zentraler SMB-Speicher (NAS)</li>
+                            <li><i class="fa-solid fa-check"></i> WLAN Optimierung & Mesh-Netzwerke</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="service-card hidden" onclick="toggleDetails('sec-details')">
-                    <div class="icon-box">
-                        <i class="fa-solid fa-user-shield"></i>                    
-                    </div>
-                    <h3>Sicherheit & Automation</h3>
-                    <p>Fortschrittliche Vernetzung, Datensicherheit und Haussteuerung.</p>
+                <div class="service-card hidden" onclick="toggleDetails('repair-details')">
+                    <div class="icon-box"><i class="fa-solid fa-laptop-medical"></i></div>
+                    <h3>PC-Hilfe & Smart Home</h3>
+                    <p>Schnelle Lösung bei Computer-Problemen und Hausautomation.</p>
                     <button class="more-info-btn">Details anzeigen <i class="fa-solid fa-chevron-down"></i></button>
 
-                    <div id="sec-details" class="service-details">
+                    <div id="repair-details" class="service-details">
                         <ul>
-                            <li><i class="fa-solid fa-check"></i> Zentraler Speicher (SMB): Zugriff auf Daten von jedem Gerät</li>
-                            <li><i class="fa-solid fa-check"></i> Netzwerksicherheit & Kameraschutz</li>
-                            <li><i class="fa-solid fa-check"></i> Digitale Steuerung für Fußbodenheizung</li>
-                            <li><i class="fa-solid fa-check"></i> Automatische Rolladen- & Fenstersteuerung</li>
+                            <li><i class="fa-solid fa-check"></i> PC-Notdienst & Viren-Entfernung</li>
+                            <li><i class="fa-solid fa-check"></i> Smart Home Nachrüstung (Licht/Heizung)</li>
+                            <li><i class="fa-solid fa-check"></i> Drucker & Scanner Einrichtung</li>
+                            <li><i class="fa-solid fa-check"></i> Smartphone Einrichtung für Senioren</li>
+                        </ul>
+                    </div>
+                </div>
+
+                 <div class="service-card hidden" onclick="toggleDetails('senior-details')">
+                    <div class="icon-box"><i class="fa-solid fa-hands-holding-circle"></i></div>
+                    <h3>Seniorenhilfe & Alltag</h3>
+                    <p>Unterstützung im Alltag und digitale Teilhabe für Senioren.</p>
+                    <button class="more-info-btn">Details anzeigen <i class="fa-solid fa-chevron-down"></i></button>
+
+                    <div id="senior-details" class="service-details">
+                        <ul>
+                            <li><i class="fa-solid fa-check"></i> Begleitung zu Terminen</li>
+                            <li><i class="fa-solid fa-check"></i> Erklärung von Digitalen Geräten</li>
+                            <li><i class="fa-solid fa-check"></i> Hilfe bei Anträgen (Pflegekasse)</li>
+                            <li><i class="fa-solid fa-check"></i> Einkaufsunterstützung</li>
                         </ul>
                     </div>
                 </div>
@@ -90,36 +119,36 @@
     <section id="about" class="about-section">
         <div class="container split-layout hidden">
             <div class="about-text">
-                <h2>Zuverlässig. Kompetent. Nah.</h2>
-                <p>Mein Name ist Brajan Biegalski. Ich stehe für moderne IT-Dienstleistungen und smarte Gebäudetechnik.</p>
-                <p>Ob es darum geht, Ihr Netzwerk gegen Eindringlinge zu sichern, einen zentralen Datenspeicher (SMB) einzurichten oder Ihr Smart Home intelligent zu steuern – mein Ziel ist es, Ihr Zuhause sicher und effizient zu vernetzen.</p>
+                <h2>Ihr Technik-Partner in Dinslaken.</h2>
+                <p>Mein Name ist Brajan Biegalski. Ich verbinde menschliche Nähe mit technischer Expertise.</p>
+                <p>In meinem eigenen Netzwerk nutze ich <strong>Ubuntu Server</strong> und <strong>WireGuard</strong>, um Daten sicher und weltweit verfügbar zu machen. Diese Expertise bringe ich zu Ihnen – egal ob für Ihr Unternehmen oder Ihr privates Smart Home.</p>
                 <div class="stats">
                     <div class="stat-item">
-                        <span class="number">100%</span>
-                        <span class="label">Sicherheit</span>
+                        <span class="number">SMB</span>
+                        <span class="label">Fileserver</span>
                     </div>
                     <div class="stat-item">
-                        <span class="number">NRW</span>
-                        <span class="label">Regional</span>
+                        <span class="number">VPN</span>
+                        <span class="label">Sicherheit</span>
                     </div>
                 </div>
             </div>
             <div class="about-image">
-                <img src="img/brajan.png" alt="Brajan Biegalski" class="profile-img">
+                <img src="img/brajan.png" width="450" height="450" alt="Brajan Biegalski - IT Dienstleister Dinslaken" class="profile-img" loading="lazy">
             </div>
         </div>
     </section>
 
     <section id="contact" class="contact-section">
         <div class="container hidden">
-            <h2>Lassen Sie uns starten</h2>
-            <p>Haben Sie Fragen oder benötigen Sie ein Angebot? Schreiben Sie mir.</p>
+            <h2>Kontakt aufnehmen</h2>
+            <p>Gerne berate ich Sie persönlich in Dinslaken, Oberhausen und Umgebung.</p>
             
             <div class="contact-wrapper">
                 <div class="contact-info">
                     <div class="info-item">
                         <i class="fa-solid fa-phone"></i>
-                        <p>+49 (0) 176 55742979</p>
+                        <p><a href="tel:+4917655742979" style="color:white">+49 (0) 176 55742979</a></p>
                     </div>
                     <div class="info-item">
                         <i class="fa-solid fa-envelope"></i>
@@ -132,19 +161,15 @@
                 </div>
                 
                 <form class="contact-form" action="https://formspree.io/f/xnnezqgv" method="POST">
-    
                     <input type="text" name="name" placeholder="Ihr Name" required>
-                    
                     <input type="email" name="email" placeholder="Ihre E-Mail" required>
-                    
                     <select name="service">
-                        <option value="IT & Smart Home">Interesse an: IT & Smart Home Einrichtung</option>
-                        <option value="Security & Automation">Interesse an: Sicherheit, SMB & Automation</option>
+                        <option value="Server & VPN">IT-Service (Server/VPN/SMB)</option>
+                        <option value="PC Hilfe">PC-Hilfe & Smart Home</option>
+                        <option value="Senioren">Seniorenhilfe</option>
                         <option value="Other">Sonstiges</option>
                     </select>
-                    
-                    <textarea name="message" placeholder="Ihre Nachricht" rows="5" required></textarea>
-                    
+                    <textarea name="message" placeholder="Wie kann ich helfen?" rows="5" required></textarea>
                     <button type="submit" class="btn btn-filled">Nachricht senden</button>
                 </form>
             </div>
@@ -153,7 +178,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Brajan Biegalski. Alle Rechte vorbehalten.</p>
+            <p>&copy; 2025 Brajan Biegalski. IT-Service & Home Assistance.</p>
             <div class="footer-links">
                 <a href="impressum.html">Impressum</a>
                 <a href="datenschutz.html">Datenschutz</a>
@@ -162,7 +187,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.umd.js"></script>
-    
     <script src="app.js"></script>
 </body>
 </html>

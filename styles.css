@@ -44,7 +44,7 @@ ul { list-style: none; }
     top: 0;
     width: 100%;
     /* Added slight transparency so Hero background shows through nicely */
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     z-index: 1000;
@@ -86,8 +86,14 @@ ul { list-style: none; }
     box-shadow: 0 6px 20px rgba(139, 92, 246, 0.23);
 }
 
-/* Mobile Menu Toggle */
-.menu-toggle { display: none; cursor: pointer; }
+/* Mobile Menu Toggle (Updated for <button> element) */
+.menu-toggle { 
+    display: none; 
+    cursor: pointer; 
+    background: none; /* Reset button styles */
+    border: none;     /* Reset button styles */
+    padding: 5px;
+}
 .bar { display: block; width: 25px; height: 2px; margin: 6px auto; background-color: var(--secondary-color); transition: 0.3s; border-radius: 2px; }
 .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
 .menu-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
@@ -106,7 +112,7 @@ ul { list-style: none; }
     padding: 2rem 1rem;
     
     /* FIX: Compensate for fixed navbar inside the Hero so text isn't hidden */
-    padding-top: 5rem; 
+    padding-top: 6rem; 
 }
 
 .hero h1 {
@@ -254,13 +260,13 @@ ul { list-style: none; }
 }
 .service-details li i { color: var(--primary-color); font-size: 0.8rem; }
 
-.service-card.active .service-details { max-height: 600px; }
+.service-card.active .service-details { max-height: 800px; }
 
 /* --- About Section --- */
 .about-section { padding: 6rem 2rem; background: var(--white); }
 .split-layout { display: flex; align-items: center; gap: 5rem; }
 .about-text { flex: 1; }
-.about-image { flex: 1; position: relative; }
+.about-image { flex: 1; position: relative; text-align: center; }
 
 .about-image::after {
     content: '';
@@ -275,7 +281,7 @@ ul { list-style: none; }
 .profile-img {
     width: 100%;
     max-width: 450px;
-    height: auto;
+    height: auto; /* Important for Aspect Ratio CLS fix */
     border-radius: 20px;
     box-shadow: var(--shadow);
     object-fit: cover;
@@ -334,6 +340,8 @@ ul { list-style: none; }
     background: rgba(255,255,255,0.1);
 }
 
+/* Fixed form background colors for inputs/options */
+.contact-form option { background: #1e1b4b; color: white; }
 .contact-form button { margin-top: 1rem; cursor: pointer; border: none; font-size: 1.1rem; }
 
 /* --- Footer --- */
@@ -346,7 +354,7 @@ footer { padding: 3rem 2rem; background: #020617; color: #64748b; text-align: ce
 .hidden { opacity: 0; transform: translateY(40px); transition: all 1s ease; }
 .show { opacity: 1; transform: translateY(0); }
 
-/* --- Legal Pages --- */
+/* --- Legal Pages (RESTORED) --- */
 .legal-section { 
     padding: 2rem 2rem 5rem; 
     min-height: 80vh; 
