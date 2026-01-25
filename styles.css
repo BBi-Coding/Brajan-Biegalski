@@ -437,3 +437,11 @@ footer { padding: 3rem 2rem; background: #020617; color: #64748b; text-align: ce
     .legal-content { padding: 2rem 1.5rem; }
     .container { padding: 0 1.5rem; }
 }
+
+
+.service-icon-img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* This turns the image white to match your other icons */
+}

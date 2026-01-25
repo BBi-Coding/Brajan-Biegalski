@@ -148,35 +148,23 @@ if (typeof CookieConsent !== 'undefined') {
 (function() {
     const schemaData = {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Brajan Biegalski IT & Home Assistance",
-      "image": "https://www.brajanbiegalski.com/img/brajan.png",
-      "url": "https://www.brajanbiegalski.com",
-      "telephone": "+49-176-55742979",
-      "priceRange": "$$",
-      "description": "IT-Support, Ubuntu Server Einrichtung und Smart Home Installation in Dinslaken und Oberhausen.",
+      "@type": "HomeAndConstructionBusiness", // More specific for Home Automation
+      "name": "Service-BB - Smart Home Brajan Biegalski",
+      "image": "https://www.service-bb.de/img/logo.png", // Update to your future logo path
+      "description": "Experte für Hausautomation, Sicherheitssysteme und Smart Home Installation in Dinslaken und NRW.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Dinslaken",
         "postalCode": "46535",
         "addressCountry": "DE"
       },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "51.5606", 
-        "longitude": "6.7380"
-      },
-      "areaServed": [
-        { "@type": "City", "name": "Dinslaken" },
-        { "@type": "City", "name": "Oberhausen" }
-      ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Dienstleistungen",
         "itemListElement": [
-          { "@type": "Offer", "name": "PC-Hilfe & Reparatur" },
-          { "@type": "Offer", "name": "Heimserver & VPN (WireGuard)" },
-          { "@type": "Offer", "name": "Seniorenhilfe & Alltagssupport" }
+          { "@type": "Offer", "name": "Hausautomation (Licht, Heizung, Rollläden)" },
+          { "@type": "Offer", "name": "Sicherheitssysteme (Kameras, Alarmanlagen)" },
+          { "@type": "Offer", "name": "Sprachsteuerung & Smart TV" }
         ]
       }
     };
