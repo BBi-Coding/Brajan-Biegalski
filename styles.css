@@ -445,3 +445,76 @@ footer { padding: 3rem 2rem; background: #020617; color: #64748b; text-align: ce
     object-fit: contain;
     filter: brightness(0) invert(1); /* This turns the image white to match your other icons */
 }
+
+/* Container for the headline and floating icons */
+.hero-visual-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 40px; /* Space for the icons to breathe */
+}
+
+/* Base style for the decorative icons */
+.hero-visual-wrapper i {
+    position: absolute;
+    color: var(--primary-color);
+    opacity: 0.2; /* Subtle look like a sketch */
+    z-index: -1;   /* Keeps them behind the text */
+}
+
+/* The House "Frame" */
+.house-outline {
+    font-size: 20rem;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #d2a7ff !important; /* Lighter purple for the background house */
+}
+
+/* Signal Icon (Top Left) */
+.signal-icon {
+    font-size: 3rem;
+    top: -10px;
+    left: -20px;
+    transform: rotate(-15deg);
+    animation: pulse-soft 3s infinite;
+}
+
+
+/* Subtle animation to make the signal look "live" */
+@keyframes pulse-soft {
+    0% { opacity: 0.2; transform: rotate(-15deg) scale(1); }
+    50% { opacity: 0.5; transform: rotate(-15deg) scale(1.1); }
+    100% { opacity: 0.2; transform: rotate(-15deg) scale(1); }
+}
+
+/* Responsive adjustment: Hide or shrink icons on small phones */
+@media (max-width: 600px) {
+    .house-outline { font-size: 15rem; }
+    .signal-icon { font-size: 2rem; left: 0; }
+}
+
+.camera-icon-pro {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    bottom: -30px;
+    right: -60px;
+    transform: rotate(-10deg);
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));    z-index: 1;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .camera-icon-pro {
+        width: 60px;
+        height: 60px;
+        bottom: -15px;
+        right: -10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .camera-icon-pro {
+        display: none;
+    }
+}

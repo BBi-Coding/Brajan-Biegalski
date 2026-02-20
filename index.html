@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css" />
 </head>
 <body>
 
@@ -47,7 +48,32 @@
 
     <header id="home" class="hero">
         <div class="hero-content hidden">
-            <h1>Ihr Zuhause, <span class="highlight">einfach intelligent.</span></h1>
+            <div class="hero-visual-wrapper">
+                <i class="fa-solid fa-house-chimney house-outline"></i>
+                <i class="fa-solid fa-wifi signal-icon"></i>
+              <svg class="camera-icon-pro"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="url(#cctv-gradient)"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    transform="scale(-1,1)"
+                    style="transform: scaleX(-1);">
+                    <defs>
+                        <linearGradient id="cctv-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#c084fc" stop-opacity="1.0"/>
+                            <stop offset="100%" stop-color="#d946ef" stop-opacity="1.0"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M16.75 12h3.632a1 1 0 0 1 .894 1.447l-2.034 4.069a1 1 0 0 1-1.708.134l-2.124-2.97"/>
+                    <path d="M17.106 9.053a1 1 0 0 1 .447 1.341l-3.106 6.211a1 1 0 0 1-1.342.447L3.61 12.3a2.92 2.92 0 0 1-1.3-3.91L3.69 5.6a2.92 2.92 0 0 1 3.92-1.3z"/>
+                    <path d="M2 19h3.76a2 2 0 0 0 1.8-1.1L9 15"/>
+                    <path d="M2 21v-4"/>
+                </svg>
+                <h1>Ihr Zuhause, <span class="highlight">einfach intelligent.</span></h1>
+            </div>
             <p>Mehr Komfort, Sicherheit und Energieersparnis in Dinslaken & NRW. Wir machen Technik für Sie nutzbar.</p>
             <div class="hero-buttons">
                 <a href="#services" class="btn btn-filled">Leistungen entdecken</a>

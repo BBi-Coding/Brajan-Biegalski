@@ -174,3 +174,5 @@ if (typeof CookieConsent !== 'undefined') {
     script.text = JSON.stringify(schemaData);
     document.head.appendChild(script);
 })();
+
+lucide.createIcons();
