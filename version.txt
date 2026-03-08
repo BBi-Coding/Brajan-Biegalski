@@ -1,0 +1,20 @@
+Last update: 2026-03-08
+
+TO PUSH TO GITHUB (do this on your PC):
+
+1. Open the folder in File Explorer:
+   \\192.168.0.180\files\s-bb\service-bb\Brajan-Biegalski
+
+2. In the address bar, type:  cmd   and press Enter
+   (This opens Command Prompt with this folder as current directory.)
+
+3. Run these commands one by one:
+   git add -A
+   git status
+   git commit -m "Update website"
+   git push origin main
+
+4. If it asks for login: use your GitHub username and a Personal Access Token (not password).
+   Create a token: GitHub.com → Settings → Developer settings → Personal access tokens.
+
+5. Check: https://github.com/BBi-Coding/Brajan-Biegalski/commits/main

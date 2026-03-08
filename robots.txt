@@ -1,2 +1,8 @@
+# Service-BB – Smart Home Dinslaken
+# https://www.brajanbiegalski.com
+
 User-agent: *
 Allow: /
+
+# Sitemap (submit this URL in Google Search Console & Bing Webmaster)
+Sitemap: https://www.brajanbiegalski.com/sitemap.xml
