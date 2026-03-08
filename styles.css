@@ -452,6 +452,22 @@ ul { list-style: none; }
     .services-sticky { position: relative; height: auto; padding: 8rem 0 10rem; }
 }
 
+/* iPhone / small screens: no scroll animation – show all content, normal scroll */
+@media (max-width: 768px) {
+    .services-section { height: auto !important; }
+    .services-sticky {
+        position: relative !important;
+        height: auto !important;
+        padding: 8rem 0 6rem !important;
+        overflow: visible !important;
+    }
+    [data-scroll-item] {
+        opacity: 1 !important;
+        transform: none !important;
+        will-change: auto;
+    }
+}
+
 .services-section .section-badge {
     font-size: 0.8rem;
     letter-spacing: 0.2em;

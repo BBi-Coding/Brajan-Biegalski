@@ -28,7 +28,7 @@ if (menuBtn && navList) {
     });
 }
 
-// 1b. Apple-style scroll-driven services animation
+// 1b. Apple-style scroll-driven services animation (desktop only; disabled on iPhone/small screens)
 (function() {
     var section = document.querySelector('[data-scroll-section]');
     if (!section) return;
@@ -38,6 +38,21 @@ if (menuBtn && navList) {
     var items = section.querySelectorAll('[data-scroll-item]');
     var map = {};
     items.forEach(function(el) { map[el.getAttribute('data-scroll-item')] = el; });
+
+    function showAllNoAnimation() {
+        for (var key in map) {
+            if (map[key]) {
+                map[key].style.opacity = '1';
+                map[key].style.transform = 'none';
+            }
+        }
+    }
+
+    /* Disable scroll animation on small viewports (iPhone, etc.) – show everything immediately */
+    if (window.matchMedia('(max-width: 768px)').matches) {
+        showAllNoAnimation();
+        return;
+    }
 
     /* Title visible right away (0–0.3% scroll); then cards */
     var timeline = {
