@@ -28,12 +28,10 @@ if (menuBtn && navList) {
     });
 }
 
-// 1b. Apple-style scroll-driven services animation (desktop only; disabled on iPhone/small screens)
+// 1b. Services section: show content without complex scroll animation
 (function() {
     var section = document.querySelector('[data-scroll-section]');
     if (!section) return;
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     var items = section.querySelectorAll('[data-scroll-item]');
     var map = {};
@@ -48,90 +46,11 @@ if (menuBtn && navList) {
         }
     }
 
-    /* Disable scroll animation on small viewports (iPhone, etc.) – show everything immediately */
-    if (window.matchMedia('(max-width: 768px)').matches) {
-        showAllNoAnimation();
-        return;
-    }
-
-    /* Title visible right away (0–0.3% scroll); then cards */
-    var timeline = {
-        'badge':    { start: 0.00, end: 0.001, y: 40, scale: false },
-        'title':    { start: 0.00, end: 0.002, y: 40, scale: true  },
-        'subtitle': { start: 0.00, end: 0.003, y: 30, scale: false },
-        'card-0':   { start: 0.00, end: 0.30, y: 80, scale: true  },
-        'card-1':   { start: 0.30, end: 0.60, y: 80, scale: true  },
-        'card-2':   { start: 0.60, end: 0.90, y: 80, scale: true  }
-    };
-
-    function ease(t) {
-        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
-
-    var ticking = false;
-    function onScroll() {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(function() {
-            ticking = false;
-            var rect = section.getBoundingClientRect();
-            var scrollable = section.offsetHeight - window.innerHeight;
-            if (scrollable <= 0) return;
-            var raw = -rect.top / scrollable;
-            var progress = Math.max(0, Math.min(1, raw));
-
-            for (var key in timeline) {
-                var el = map[key];
-                if (!el) continue;
-                var t = timeline[key];
-                var local;
-                if (progress <= t.start) local = 0;
-                else if (progress >= t.end) local = 1;
-                else local = (progress - t.start) / (t.end - t.start);
-                local = ease(local);
-
-                var opacity = local;
-                var translateY = t.y * (1 - local);
-                var scaleVal = t.scale ? 0.85 + 0.15 * local : 1;
-                if (key.indexOf('card') === 0) scaleVal = 0.95 + 0.05 * local;
-
-                el.style.opacity = opacity;
-                el.style.transform = 'translateY(' + translateY + 'px) scale(' + scaleVal + ')';
-            }
-            /* Title visible right away when section is in view */
-            if (progress >= 0 && (map.badge || map.title || map.subtitle)) {
-                if (map.badge) { map.badge.style.opacity = '1'; map.badge.style.transform = 'none'; }
-                if (map.title) { map.title.style.opacity = '1'; map.title.style.transform = 'none'; }
-                if (map.subtitle) { map.subtitle.style.opacity = '1'; map.subtitle.style.transform = 'none'; }
-            }
-        });
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    // Immediately reveal all scroll items; no extra scroll handler needed
+    showAllNoAnimation();
 })();
 
-// 2. Service Cards Interaction (Accordion) – event delegation
-document.addEventListener('click', (e) => {
-    const card = e.target.closest('.service-card');
-    if (!card) return;
-    const details = card.querySelector('.service-details');
-    const btn = card.querySelector('.more-info-btn');
-    if (!details || !btn) return;
-
-    const isActive = card.classList.contains('active');
-    document.querySelectorAll('.service-card').forEach(c => {
-        c.classList.remove('active');
-        const b = c.querySelector('.more-info-btn');
-        if (b) b.setAttribute('aria-expanded', 'false');
-    });
-    if (!isActive) {
-        card.classList.add('active');
-        btn.setAttribute('aria-expanded', 'true');
-    }
-});
-
-// 3. Scroll Animations (Intersection Observer)
+// 2. Scroll Animations (Intersection Observer)
 const observerOptions = {
     threshold: 0.15 // Trigger when 15% of element is visible
 };
@@ -150,7 +69,45 @@ document.querySelectorAll('.hidden').forEach((el) => {
 });
 
 
-// 4. Smooth Scroll for Anchor Links
+// 2b. Reveal service lists on scroll (desktop only)
+(function () {
+    if (!window.matchMedia('(min-width: 1024px)').matches) return;
+    if (typeof IntersectionObserver === 'undefined') return;
+
+    const lists = document.querySelectorAll('.service-list');
+    const cards = document.querySelectorAll('.service-card');
+    if (!lists.length && !cards.length) return;
+
+    const listObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('service-list--visible');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    lists.forEach(list => {
+        list.classList.add('service-list--reveal');
+        listObserver.observe(list);
+    });
+
+    const cardObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('service-card--visible');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.25 });
+
+    cards.forEach(card => {
+        card.classList.add('service-card--reveal');
+        cardObserver.observe(card);
+    });
+})();
+
+// 3. Smooth Scroll for Anchor Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
