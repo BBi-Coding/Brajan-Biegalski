@@ -227,6 +227,7 @@ if (typeof CookieConsent !== 'undefined') {
         "alternateName": "Service-BB Smart Home Brajan Biegalski",
         "description": "Smart Home Experte in Dinslaken: Hausautomation, Sicherheitssysteme, Kameraüberwachung und Sprachsteuerung. Beratung, Installation und Wartung in Dinslaken und NRW.",
         "url": baseUrl + "/",
+        "logo": baseUrl + "/img/B_logo.png",
         "image": [baseUrl + "/img/4.jpg", baseUrl + "/img/brajan.png"],
         "telephone": "+49-176-55742979",
         "email": "service-bb@gmx.de",
