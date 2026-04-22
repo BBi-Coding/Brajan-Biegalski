@@ -810,6 +810,18 @@ ul { list-style: none; }
 .gallery-overlay span { font-weight: 600; }
 .gallery-overlay i { font-size: 1.25rem; color: var(--accent); }
 
+.review-stars {
+    display: flex;
+    gap: 0.35rem;
+    margin-bottom: 0.65rem;
+}
+
+.review-stars i {
+    font-size: 1rem;
+    color: #ffd84d;
+    text-shadow: 0 0 6px rgba(255, 216, 77, 0.95), 0 0 14px rgba(255, 200, 0, 0.6);
+}
+
 /* Lightbox */
 .lightbox {
     position: fixed;

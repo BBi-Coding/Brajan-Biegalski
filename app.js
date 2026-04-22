@@ -231,6 +231,8 @@ if (typeof CookieConsent !== 'undefined') {
         "image": [baseUrl + "/img/4.jpg", baseUrl + "/img/brajan.png"],
         "telephone": "+49-176-55742979",
         "email": "service-bb@gmx.de",
+        "taxID": "319/5055/6755",
+        "identifier": "DE461538572",
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Dinslaken",
